@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Create Project</h2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control" + (" is-invalid" if form.name.errors else "")) }}
+            {% for error in form.name.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control" + (" is-invalid" if form.description.errors else "")) }}
+            {% for error in form.description.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.start_date.label(class="form-label") }}
+            {{ form.start_date(class="form-control" + (" is-invalid" if form.start_date.errors else "")) }}
+            {% for error in form.start_date.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.end_date.label(class="form-label") }}
+            {{ form.end_date(class="form-control" + (" is-invalid" if form.end_date.errors else "")) }}
+            {% for error in form.end_date.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Create Project</button>
+    </form>
+</div>
+{% endblock %}
+
+

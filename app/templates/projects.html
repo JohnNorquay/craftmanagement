@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>My Projects</h2>
+    <ul>
+        {% for project in projects %}
+            <li>
+                {{ project.name }} - <a href="{{ url_for('project_details', project_id=project.id) }}">View Details</a> |
+                <a href="{{ url_for('add_product', project_id=project.id) }}">Add Supplies</a>
+            </li>
+        {% else %}
+            <p>No projects found.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
